@@ -5,9 +5,121 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: rgb(246, 241, 236);
+  /* #F6F1EC */
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.head:hover{
+color: orange
+}
+.custom-content-box {
+  box-sizing: content-box;
+}
+
+div.brackets a:before, div.brackets a:after
+{
+    position: absolute;
+    opacity: 0;
+    font-size: 35px;
+    top: 0px;
+    transition: all 0.3s;
+}
+
+div.brackets a:before
+{
+    content: '(';
+    left: 0px;
+    transform: translateX(10px);
+}
+
+div.brackets a:after
+{
+    content: ')';
+    right: 0px;
+    transform: translateX(-10px);
+}
+
+div.brackets a:hover:before, div.brackets a:hover:after
+{
+    opacity: 1;
+    transform: translateX(0px);
+}
+.hover-effect{
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+.hover-effect:hover{
+  transform: scale(1.05); /* Scales up the card slightly */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.25); 
+}
+/* .hover-effect:hover .hover-text-change {
+  color: rgb(207, 139, 12)
+} */
+
+.grow-bar {
+  background-color: #171717; /* The color of the bar */
+  height: 1px; /* Fixed height of 1px */
+  width: 0; /* Start width at 0 */
+  margin: 1rem 0.75rem;
+  transition: width 0.5s ease-out; /* Smooth transition for the width */
+}
+
+/* Target the parent span on hover to affect the .grow-bar div */
+.one:hover .grow-bar {
+  width: 24px; /* Expand to 24px on hover */
+}
+
+.hexagon-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100px; /* Adjust base size here */
+  height: 100px;
+  perspective: 1000px;
+}
+
+.hexagon {
+  width: 100%;
+  height: 100%;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  background: #E1DCD7; /* Placeholder if no image */
+  box-shadow: 10px 20px 55px rgba(146, 29, 29, 1);
+}
+
+.hexagon-inner {
+  width: 90%; /* Slightly smaller to create padding effect */
+  height: 90%;
+  margin: auto; /* Centers the inner hexagon */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  overflow: hidden;
+}
+
+@media (max-width: 640px) { /* Tailwind's sm breakpoint */
+  .hexagon-wrapper {
+    width: 80px;
+    height: 80px;
+  }
+  .hexagon-inner {
+    width: 90%;
+    height: 90%;
+  }
+}
+
+
+@media (max-width: 640px) { /* Tailwind's sm breakpoint */
+  .hexagon-wrapper {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

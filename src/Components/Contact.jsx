@@ -5,7 +5,28 @@ import { FaGithub } from "react-icons/fa";
 import { CiLinkedin } from "react-icons/ci";
 import { FaInstagram } from "react-icons/fa";
 import { SiLeetcode } from "react-icons/si";
+import { useRef } from 'react';
+import emailjs from '@emailjs/browser';
+
 export default function Contact() {
+  const form = useRef();
+
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', form.current, {
+        publicKey: 'YOUR_PUBLIC_KEY',
+      })
+      .then(
+        () => {
+          console.log('SUCCESS!');
+        },
+        (error) => {
+          console.log('FAILED...', error.text);
+        },
+      );
+  };
     return (
         <>
             <div className='mt-24'>
@@ -70,40 +91,61 @@ export default function Contact() {
           </div>
         </div>
         <div className="mx-auto max-w-[700px]">
-          <form>
-            <div className="relative mb-6" data-te-input-wrapper-init>
-            <input type="text"
-       className="peer block w-full rounded bg-transparent py-[0.32rem] px-3 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder-opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder-opacity-100 motion-reduce:transition-none dark:text-white dark:placeholder:text-white dark:peer-focus:text-primary placeholder-opacity-0 border border-slate-400"
-       id="exampleInput90" placeholder="" />
-              <label
-                className="pointer-events-none absolute top-0 left-3 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-900 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-black dark:peer-focus:text-primary"
-                for="exampleInput90">Name
-              </label>
-            </div>
-            <div className="relative mb-6" data-te-input-wrapper-init>
-            <input type="email"
-       className="peer block w-full rounded bg-transparent py-[0.32rem] px-3 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder-opacity-100 peer-focus:text-primary data-[te-input-state-active]:placeholder-opacity-100 motion-reduce:transition-none dark:text-black dark:placeholder:text-gray-700 dark:peer-focus:text-primary placeholder-opacity-0 border border-slate-400"
-       id="exampleInput90" placeholder="" />
-              <label
-                className="pointer-events-none absolute top-0 left-3 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-black dark:peer-focus:text-primary"
-                for="exampleInput91">Email address
-              </label>
-            </div>
-            <div className="relative mb-6" data-te-input-wrapper-init>
-            <textarea
-    className="peer block w-full rounded bg-transparent py-[0.32rem] px-3 leading-[1.6] outline-none transition-all duration-200 ease-linear focus:placeholder-opacity-100 motion-reduce:transition-none dark:text-gray-700 dark:placeholder-text-neutral-200 placeholder-opacity-0 border focus:border-primary focus:ring-1 focus:ring-primary border-slate-400 hover:border-slate-400"
-    id="exampleFormControlTextarea1" rows="3" placeholder=""></textarea>
+        <form ref={form}
+  className="space-y-4 md:space-y-6 p-4 md:p-8 bg-white shadow-md rounded-lg max-w-lg mx-auto my-10"
+  onSubmit={sendEmail}
+//   onSubmit={(e) => {
+// console.log("in te fun");
+//     const submitButton = e.target.querySelector('button[type="submit"]');
+//     console.log(submitButton)
+//     submitButton.disabled = true;
+//     submitButton.style.opacity = "0.5";
+//     submitButton.textContent = "Sending...";
 
-              <label for="exampleFormControlTextarea1"
-                className="pointer-events-none absolute top-0 left-3 mb-0 max-w-[90%] origin-[0_0] truncate pt-[0.37rem] leading-[1.6] text-neutral-500 transition-all duration-200 ease-out peer-focus:-translate-y-[0.9rem] peer-focus:scale-[0.8] peer-focus:text-primary peer-data-[te-input-state-active]:-translate-y-[0.9rem] peer-data-[te-input-state-active]:scale-[0.8] motion-reduce:transition-none dark:text-black dark:peer-focus:text-primary">Message</label>
-            </div>
-            
-            <button type="button" data-te-ripple-init data-te-ripple-color="light"
-        className="inline-block w-full rounded bg-primary px-6 pt-2.5 pb-2 text-xs font-medium uppercase leading-normal text-white border border-black shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:border-black hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:border-black focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-2 focus:ring-black focus:ring-offset-2 active:bg-primary-700 active:border-black active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] dark:shadow-[0_4px_9px_-4px_rgba(59,113,202,0.5)] dark:hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] dark:active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.2),0_4px_18px_0_rgba(59,113,202,0.1)] lg:mb-0 bg-orange-600 hover:bg-amber-600">
-    Send
-</button>
+//     // After 15 seconds, revert the button to its original state
+//     setTimeout(() => {
+//       submitButton.disabled = false;
+//       submitButton.style.opacity = "1";
+//       submitButton.textContent = "Send";
+//     }, 15000);
+//   }}
+>
+{/* <input type="hidden" name="_captcha" value="false"/> */}
+  <div className="flex flex-col gap-4">
+    <input
+      className="p-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 transition ease-in-out"
+      type="text"
+      name="name"
+      placeholder="Your Name"
+      required
+    />
+    <input
+      className="p-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 transition ease-in-out"
+      type="email"
+      name="email"
+      placeholder="Your Email"
+      required
+    />
+    <input
+      className="p-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 transition ease-in-out"
+      type="text"
+      name="number"
+      placeholder="Your Phone Number"
+      required
+    />
+    <button
+    // onClick={handleSubmit}
+      type="submit"
+      className="p-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition ease-in-out "
+    >
+      Send
+    </button>
+  </div>
 
-          </form>
+  <p className="text-center font-serif mt-4">
+    After registering with us, we will get in touch with you shortly.
+  </p>
+</form>
         </div>
       </div>
     </div>

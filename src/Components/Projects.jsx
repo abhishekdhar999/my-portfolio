@@ -17,16 +17,136 @@ import { SiPrisma } from "react-icons/si";
 import nyaysathi from '../Images/nyaysathi.png'
 import algoarena from '../Images/algoarena.png'
 import shopfiesta from '../Images/shopfiesta.png'
-// import 
+
+import { useRef,useEffect } from 'react';
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+gsap.registerPlugin(useGSAP);
+gsap.registerPlugin(ScrollTrigger) 
+
 export default function Projects() {
     const [seeMore, setSeeMore] = useState(false);
 
     const handleClick = () => {
         setSeeMore(!seeMore)
     }
+
+    const container = useRef();
+const container2 = useRef();
+const container3 = useRef();
+
+const exploreProjects = useRef();
+
+    useEffect(() => {
+        const elements = container.current;
+    
+        if (elements) {
+          const image1 = elements.querySelector('.project-image1');
+          const text1 = elements.querySelector('.project-text1');
+    
+          let tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: image1,
+                start: "top+=100 bottom",
+                end: "bottom+=100 bottom",
+                scrub: true,
+                toggleActions: 'play none none none',
+                //  markers: true, 
+            }
+        })
+        tl.fromTo(image1,{x:-400,opacity:0,duration:10},{opacity:1,x:0,duration:50})
+    
+
+        let ll = gsap.timeline({
+            scrollTrigger: {
+                trigger: text1,
+                start: "top+=100 bottom",
+                end: "bottom+=140 bottom",
+                scrub: true,
+                toggleActions: 'play none none none',
+                //  markers: true, 
+            }
+        })
+        ll.fromTo(text1,{x:1000,opacity:0,duration:10},{opacity:1,x:0})
+        }
+      }, []);
+
+
+      useEffect(() => {
+        const elements = container2.current;
+    
+        if (elements) {
+          const image2 = elements.querySelector('.project-image2');
+          const text2 = elements.querySelector('.project-text2');
+    
+          let tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: image2,
+                start: "top+=120 bottom",
+                end: "bottom+=130 bottom",
+                scrub: true,
+                toggleActions: 'play none none none',
+                //  markers: true, 
+            }
+        })
+        tl.fromTo(image2,{x:1000,opacity:0,duration:10},{opacity:1,x:0,duration:50})
+    
+
+        let ll = gsap.timeline({
+            scrollTrigger: {
+                trigger: text2,
+                start: "top+=120 bottom",
+                end: "bottom+=130 bottom",
+                scrub: true,
+                toggleActions: 'play none none none',
+                //  markers: true, 
+            }
+        })
+        ll.fromTo(text2,{x:-700,opacity:0,duration:10},{opacity:1,x:0})
+        }
+      }, []);
+
+
+
+      useEffect(() => {
+        const elements = container3.current;
+    
+        if (elements) {
+          const image3 = elements.querySelector('.project-image3');
+          const text3 = elements.querySelector('.project-text3');
+    
+          let tl = gsap.timeline({
+            scrollTrigger: {
+                trigger: image3,
+                start: "top+=150 bottom",
+                end: "bottom+=150 bottom",
+                scrub: true,
+                toggleActions: 'play none none none',
+                //  markers: true, 
+            }
+        })
+        tl.fromTo(image3,{x:-400,opacity:0,duration:10},{opacity:1,x:0,duration:50})
+    
+
+        let ll = gsap.timeline({
+            scrollTrigger: {
+                trigger: text3,
+                start: "top+=150 bottom",
+                end: "bottom+=190 bottom",
+                scrub: true,
+                toggleActions: 'play none none none',
+                //  markers: true, 
+            }
+        })
+        ll.fromTo(text3,{x:1000,opacity:0,duration:10},{opacity:1,x:0})
+        }
+      }, []);
+      
     return (
         <>
-            <div className='heading-box flex justify-between mx-12 lg:mx-44 my-12 '>
+            <div className='heading-box flex justify-between mx-12 lg:mx-44 my-24 '>
                 <div className='flex flex-col md:flex-row md:my-0 mt-14 justify-center items-center lg:mx-44'>
                     <div className='heading '>
                         <h1 className='text-4xl'> <span className='text-xl  text-orange-500  mr-10'>work</span> A small selection of </h1>
@@ -48,11 +168,13 @@ export default function Projects() {
 
             <div className='projects '>
 
-                <div className='one flex justify-center items-center md:flex-row flex-col'>
-                    <div className='project-image'>
+                <div ref={container} className=' one flex justify-center items-center md:flex-row flex-col overflow-hidden'>
+                    
+                    <div  className='project-image1'>
                         <img className='h-[350px] w-[300px] md:w-[350px] lg:w-[450px] rounded-xl' src={nyaysathi} alt="" />
                     </div>
-                    <div className='project-text mx-12 md:my-0 my-4'>
+
+                    <div className='project-text1 mx-12 md:my-0 my-4'>
 
                         <span class="block max-w-lg p-2 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 min-w-[250px] overflow-hidden">
 
@@ -104,11 +226,11 @@ export default function Projects() {
 
                 {/* second */}
 
-                <div className='second flex justify-center items-center md:flex-row flex-col'>
+                <div ref={container2} className=' second flex justify-center items-center md:flex-row flex-col overflow-hidden'>
 
-                    <div className='project-text mx-12 '>
+                    <div className='project-text2 mx-12 ml-0'>
 
-                        <span class="block max-w-lg p-2 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700  min-w-[250px] md:my-0 my-4">
+                        <span class="block max-w-lg p-2 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700  min-w-[250px] md:my-0 my-4 ">
 
                             <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">AlgoArena</h5>
                             <p class="font-normal text-gray-700 dark:text-gray-400">Your all-in-one platform for mastering and solving data structures and algorithms, featuring problem, integrated todo lists,
@@ -147,18 +269,18 @@ export default function Projects() {
                         </div>
                     </div>
 
-                    <div className='project-image'>
+                    <div className='project-image2'>
                         <img className='h-[350px] w-[300px] md:w-[350px] lg:w-[450px] rounded-xl' src={algoarena} alt="" />
                     </div>
                 </div>
 
 
                 {/* third */}
-                <div className='one flex justify-center items-center md:flex-row flex-col md:my-0 my-4'>
-                    <div className='project-image'>
+                <div ref={container3} className='one flex justify-center items-center md:flex-row flex-col md:my-0 my-4 overflow-hidden'>
+                    <div className='project-image3'>
                         <img className='h-[350px] w-[300px] md:w-[350px] lg:w-[450px] rounded-xl' src={shopfiesta} alt="" />
                     </div>
-                    <div className='project-text mx-12'>
+                    <div className='project-text3 mx-12'>
 
                         <span class="block max-w-lg p-2 bg-white border border-gray-200 rounded-lg shadow hover:bg-gray-100 dark:bg-gray-800 dark:border-gray-700 dark:hover:bg-gray-700 min-w-[250px] md:my-0 my-4">
 
@@ -214,7 +336,7 @@ export default function Projects() {
 
 
 
-            {seeMore && (<div className='more-projects '>
+            {seeMore && (<div ref={exploreProjects} className='more-projects '>
 
                 <div className='first-row flex mx-2 p-4 md:flex-row flex-col items-center justify-center lg:gap-8 md:gap-4'>
 

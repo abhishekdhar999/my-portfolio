@@ -26,6 +26,7 @@ import Overlay from './Overlay';
 import MotionPathPlugin from 'gsap/MotionPathPlugin';
 import moreProjectImg from '../Images/check.png'
 import snail from '../Images/emojiImg.png';
+import { MdEmail } from "react-icons/md";
 // import Emoji from './Emoji';
 gsap.registerPlugin(useGSAP);
 gsap.registerPlugin(ScrollTrigger, MotionPathPlugin); 
@@ -203,7 +204,7 @@ const exploreProjects = useRef();
                   start: "top+=200 center",
                   end: "bottom top",
                   scrub: true,
-                  markers:true
+                //   markers:true
                 }
               });
             
@@ -245,15 +246,15 @@ const exploreProjects = useRef();
               let tl  = gsap.timeline({
   scrollTrigger:{
   trigger: container5.current,
-  start:"top center",
+  start:"top-=150 center",
   end:"bottom center",
   scrub: true,
   toggleActions: 'play none none reverse',
-   markers: true,
+//    markers: true,
   }
               })
   
-              tl.fromTo(container5.current,{x:700 ,duration:1} ,{x:-1400,duration:1})
+              tl.fromTo(container5.current,{x:900 ,duration:1} ,{x:-1400,duration:1})
           }
       },[seeMore])
     return (
@@ -615,20 +616,35 @@ const exploreProjects = useRef();
             </div>
               )}
 
-<div  ref={container5} className=' h-44 whole  flex justify-end items-end'>
-        
+<div  ref={container5} className=' h-44 whole sm:block hidden my-12  '>
+            <span className='flex justify-center items-center'>
         <div className='img-1'>
             <img className=' h-28 ' src={snail} alt="" />
         </div>
 
         <div className='img-2 mx-4 bg-orange-400  rounded-full '>
-<h2 className='mx-4 p-0 m-0 text-amber-900 font-extrabold text-2xl my-0'> "Intrigued? I’d love to hear from you!"      </h2>
+<h2 className='mx-4 p-0 m-0 text-amber-900 font-extrabold text-2xl my-0'> "Intrigued?   I’d love to hear from you!"      </h2>
         </div>
+
+        <span >
+        <MdEmail className='text-4xl text-orange-400'  />
+        </span>
+        <span >
+        <MdEmail className='text-3xl text-orange-400'  />
+        </span>
+        <span >
+        <MdEmail className='text-2xl text-orange-400'  />
+        </span>
+        <span >
+        <MdEmail className='text-xl text-orange-400'  />
+        </span>
+        <span >
+        <MdEmail className='  text-orange-400'  />
+        </span>
+        </span>
         </div> 
 
-{/* <div>
-    <Emoji></Emoji>
-</div> */}
+
         </>
     )
 }

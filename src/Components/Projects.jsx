@@ -165,7 +165,7 @@ const exploreProjects = useRef();
                   start: "top+=200 center",
                   end: "bottom top",
                   scrub: true,
-                  markers:true
+                //   markers:true
                 }
               });
             

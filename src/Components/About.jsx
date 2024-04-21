@@ -5,7 +5,7 @@ import me from '../Images/aboutImg.jpeg'
 export default function About() {
   return (
     <>
-<div className='flex my-6 '>
+<div className='flex my-12 '>
     <h1 className='heading text-orange-500 mx-10 lg:mx-32 my-3'>
         About
     </h1>

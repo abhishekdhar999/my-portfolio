@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import logo from '../Images/logo.png'
 import '../App.css'
-
+import Overlay from './Overlay';
 import { Link } from 'react-router-dom';
 // import { ResumeComponent } from './ResumeComponent';
 import  ResumeComponent  from './ResumeComponent';
@@ -13,9 +13,19 @@ export default function Navbar() {
   const openMainMenu = () => {
     setIsOpen(!isOpen);
   }
+  const [overlayActive, setOverlayActive] = useState(false);
+  const handleNavigate = () => {
+    // Activate the overlay
+    setOverlayActive(true);
+    
+    // Simulate loading time or wait for navigation to complete
+    setTimeout(() => {
+      setOverlayActive(false);
+    }, 1500); // Adjust timing as necessary
+  };
   return (
     <div>
-
+<Overlay isActive={overlayActive} />
 
 <nav className="bg-[#F6F1EC] border-gray-200">
   <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-2">
@@ -36,24 +46,24 @@ export default function Navbar() {
             <ul className="font-medium flex flex-col p-4 md:p-0 mt-4 border border-gray-100 rounded-lg bg-gray-50 md:flex-row md:space-x-8 rtl:space-x-reverse md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 ">
               <li>
 <Link to="/" onClick={() => openMainMenu(false)}>
-                <a href="/" className="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500" aria-current="page">Home</a>
+                <a onClick={handleNavigate} href="/" className="block py-2 px-3 text-white bg-blue-700 rounded md:bg-transparent md:text-blue-700 md:p-0 dark:text-white md:dark:text-blue-500" aria-current="page">Home</a>
                 </Link>
               </li>
              
               <li className='  '>
                 <Link to="/about" onClick={() => openMainMenu(false)}>
-                <a href="/about" className="block py-2 px-3 text-white rounded  md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0  md:dark:hover:text-blue-500  md:dark:hover:bg-red hover:bg-gray-600 ">About</a>
+                <a onClick={handleNavigate} href="/about" className="block py-2 px-3 text-white rounded  md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0  md:dark:hover:text-blue-500  md:dark:hover:bg-red hover:bg-gray-600 ">About</a>
                 </Link>
               </li>
               <li>
-                <Link to="/projects" onClick={() => openMainMenu(false)}>
-                  <a href="/explorepage" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-600 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 md:dark:hover:bg-transparent">Projects</a>
+                <Link  to="/projects" onClick={() => openMainMenu(false)}>
+                  <a onClick={handleNavigate} href="/explorepage" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-600 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 md:dark:hover:bg-transparent">Projects</a>
                 </Link>
               </li>
 
               <li>
-                <Link to="/contact" onClick={() => openMainMenu(false)}>
-                  <a href="/" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Contact</a>
+                <Link  to="/contact" onClick={() => openMainMenu(false)}>
+                  <a onClick={handleNavigate} href="/" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-blue-700 md:p-0 dark:text-white md:dark:hover:text-blue-500 dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent">Contact</a>
                 </Link>
               </li>
             </ul>
@@ -69,31 +79,31 @@ export default function Navbar() {
               <li className="">
                 <div className='container cyan brackets'>
 
-                <Link to="/">
+                <Link onClick={handleNavigate} to="/">
                 <span  className="custom-button block py-2 px-3 text-white  rounded md:bg-transparent md:text-black md:p-0 dark:text-white md:dark:text-black font-sans font-bold text-lg hover:text-orange-600" aria-current="page">Home</span>
                 </Link>
                 </div>
               </li>
               
               <li>
-                <Link to="/about">
+                <Link onClick={handleNavigate}  to="/about">
                   <span className="custom-button block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0  md:p-0   md:dark:hover:bg-transparent font-sans font-bold text-lg hover:text-orange-600">About</span>
                 </Link>
               </li>
               <li>
-                <Link to="/projects">
+                <Link onClick={handleNavigate} to="/projects">
                   <span className="custom-button block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0  md:p-0 dark:text-black  md:dark:hover:bg-transparent font-sans font-bold text-lg hover:text-orange-600">Projects</span>
                 </Link>
               </li>
 
               <li>
-                <Link to="/contact">
+                <Link onClick={handleNavigate} to="/contact">
                   <span  className="custom-button block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0  md:p-0   dark:hover:bg-gray-700  md:dark:hover:bg-transparent font-sans font-bold text-lg hover:text-orange-600">Contact</span>
                 </Link>
               </li>
 
               <li>
-                <Link to="/resume">
+                <Link onClick={handleNavigate} to="/resume">
                   <span className="custom-button block py-4 px-3 text-gray-200 rounded   md:border-0  md:p-0    font-sans font-bold text-lg hover:text-gray-600 bg-orange-400  "> <span className='p-3'>Resume</span></span>
                 </Link>
               </li>

@@ -6,7 +6,7 @@ import Skills from '../Components/Skills'
 import About from '../Components/About'
 import Contact from '../Components/Contact'
 import Navbar from '../Components/Navabar'
-
+// import Emoji from '../Components/Emoji'
 function HomePage() {
   return (
     <>
@@ -15,6 +15,7 @@ function HomePage() {
       <Skills></Skills>
       <Projects></Projects>
       <About></About>
+{/* <Emoji></Emoji> */}
       <Contact></Contact>
       
     </>

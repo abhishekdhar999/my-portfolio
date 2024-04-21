@@ -125,7 +125,7 @@ export default function Skills() {
                     <div className='h-1 w-14 ml-4 my-4 bg-orange-500'></div>
                 </div>
 
-                <div ref={container} className='first-row flex justify-center  items-center  mt-12 overflow-hidden'>
+                <div ref={container} className='first-row flex justify-center  items-center  mt-12 overflow-hidden '>
                     <span className='flex justify-center items-center sm:flex-row flex-col '>
                         <div className="box hexagon-wrapper mx-2 ml-2">
                             <div className="hexagon shadow-lg shadow-slate-900">
@@ -217,7 +217,7 @@ export default function Skills() {
 
                 {/* second row */}
                 <div className='box second-row flex justify-center  
-                items-center mt-3'>
+                items-center mt-3 overflow-hidden'>
                     <span ref={thirdcontainer} className='flex justify-center items-center sm:flex-row flex-col'>
                         <div className="box hexagon-wrapper mx-2 ">
                             <div className="hexagon shadow-lg shadow-slate-900">
@@ -289,7 +289,7 @@ export default function Skills() {
 
             {/* third */}
             <div className='second-row flex justify-center  
-                items-center '>
+                items-center overflow-hidden'>
                 <span ref={secondcontainer} className='flex justify-center items-center sm:flex-row flex-col'>
                     <div className="box hexagon-wrapper mx-2 ">
                         <div className="hexagon shadow-lg shadow-slate-900">

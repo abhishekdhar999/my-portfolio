@@ -7,26 +7,60 @@ import { FaInstagram } from "react-icons/fa";
 import { SiLeetcode } from "react-icons/si";
 import { useRef } from 'react';
 import emailjs from '@emailjs/browser';
-
+import { useState } from 'react';
 export default function Contact() {
+  // const myService_id  = process.env.SERVICE_ID
+  // const myTemplate_id  = process.env.TEMPLATE_ID
+  // const myPublicKey = process.env.PUBLIC_K
   const form = useRef();
-
+const [email,sentEmail] =  useState(false);
+const [isSending, setIsSending] = useState(false);
+const [formData, setFormData] = useState({
+  name: '',
+  email: '',
+  message: ''
+});
   const sendEmail = (e) => {
     e.preventDefault();
-
+    setIsSending(true);
     emailjs
-      .sendForm('YOUR_SERVICE_ID', 'YOUR_TEMPLATE_ID', form.current, {
-        publicKey: 'YOUR_PUBLIC_KEY',
+      .sendForm('service_nbuutgq', 'template_x6oul32', form.current, {
+        publicKey: 'DqQXPWuenWk8SFYrW',
       })
       .then(
         () => {
+          setIsSending(false);
           console.log('SUCCESS!');
+          
+          sentEmail(true);
+          setFormData({ name: '', email: '', message: '' }); // Reset form data
+
+         
+            setTimeout(() => {
+              sentEmail(false); // Reset email state after 5 seconds
+              // setIsSending(false);
+            }, 5000)
+          
+          
         },
         (error) => {
           console.log('FAILED...', error.text);
+          setIsSending(false);
         },
       );
   };
+  const buttonStyle = {
+    opacity: isSending || email ? 0.5 : 1,  // Conditional opacity
+    cursor: isSending || email ? 'not-allowed' : 'pointer'  // Conditional cursor
+};
+
+const handleInputChange = (e) => {
+  setFormData({
+      ...formData,
+      [e.target.name]: e.target.value
+  });
+};
+  
     return (
         <>
             <div className='mt-24'>
@@ -92,59 +126,54 @@ export default function Contact() {
         </div>
         <div className="mx-auto max-w-[700px]">
         <form ref={form}
-  className="space-y-4 md:space-y-6 p-4 md:p-8 bg-white shadow-md rounded-lg max-w-lg mx-auto my-10"
+  className="space-y-4 md:space-y-6 p-4 md:p-8 bg-[#d8d3cd] shadow-md rounded-lg max-w-lg mx-auto my-10"
   onSubmit={sendEmail}
-//   onSubmit={(e) => {
-// console.log("in te fun");
-//     const submitButton = e.target.querySelector('button[type="submit"]');
-//     console.log(submitButton)
-//     submitButton.disabled = true;
-//     submitButton.style.opacity = "0.5";
-//     submitButton.textContent = "Sending...";
 
-//     // After 15 seconds, revert the button to its original state
-//     setTimeout(() => {
-//       submitButton.disabled = false;
-//       submitButton.style.opacity = "1";
-//       submitButton.textContent = "Send";
-//     }, 15000);
-//   }}
+
 >
-{/* <input type="hidden" name="_captcha" value="false"/> */}
+
   <div className="flex flex-col gap-4">
     <input
-      className="p-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 transition ease-in-out"
+      className="p-2 rounded-md border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition ease-in-out bg-[#d8d3cd]"
       type="text"
-      name="name"
       placeholder="Your Name"
+      name="name"
+                value={formData.name}
+                onChange={handleInputChange}
       required
     />
     <input
-      className="p-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 transition ease-in-out"
+      className="p-2 rounded-md border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition ease-in-out bg-[#d8d3cd]"
       type="email"
-      name="email"
+      
       placeholder="Your Email"
+      name="email"
+                value={formData.email}
+                onChange={handleInputChange}
       required
     />
-    <input
-      className="p-2 rounded-md border border-gray-300 focus:outline-none focus:ring-2 focus:ring-blue-500 transition ease-in-out"
-      type="text"
-      name="number"
-      placeholder="Your Phone Number"
+    <textarea
+      className="p-2 rounded-md border border-gray-700 focus:outline-none focus:ring-2 focus:ring-blue-500 transition ease-in-out bg-[#d8d3cd]"
+      
+      
+      placeholder="your message"
+      name="message"
+                value={formData.message}
+                onChange={handleInputChange}
       required
     />
     <button
     // onClick={handleSubmit}
       type="submit"
-      className="p-2 bg-blue-500 text-white rounded-md hover:bg-blue-600 transition ease-in-out "
+      className="p-2 bg-orange-500 text-white rounded-md hover:bg-orange-600 transition ease-in-out "
+      disabled={isSending || email}
+      style={buttonStyle}
     >
-      Send
+     {isSending ? 'Sending...' : (email ? 'Email Sent Successfully' : 'Send')}
     </button>
   </div>
 
-  <p className="text-center font-serif mt-4">
-    After registering with us, we will get in touch with you shortly.
-  </p>
+  
 </form>
         </div>
       </div>

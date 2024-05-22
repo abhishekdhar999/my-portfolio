@@ -36,7 +36,7 @@ export default function Home() {
 
 
 
-            <div className='flex justify-center items-center   md:flex-row flex-col h-screen  mx-12 mb-44 md:mb-0'>
+            <div className='flex justify-center items-center   md:flex-row flex-col h-auto mx-2 md:my-24  md:mx-12 mb-44 md:mb-0 overflow-hidden'>
 
                 <div className='image-box lg:mx-12 mt-28 md:mt-2'>
                     <div className='image '>
@@ -44,12 +44,12 @@ export default function Home() {
                     </div>
                 </div>
 
-                <div className='text-box mx-24 flex-1'>
+                <div className='text-box sm:mx-24   flex-1'>
                     <div className='heading'>
                         <h1 className='split text-5xl font-extrabold'>"Greetings, Explorer!"</h1>
                     </div>
                     <div className='sub-heding my-4'>
-                        <p className=' z-10 text-xl'>"Hi there! I'm <span className='text-orange-700'>Abhishek Dhar</span>, currently navigating the intricate world of Information Technology—where I transform code into solutions and coffee into code. Join me as I decode challenges and innovate the future of tech."</p>
+                        <p className=' z-10 text-xl text-center md:text-left'>"Hi there! I'm <span className='text-orange-700'>Abhishek Dhar</span>, currently navigating the intricate world of Information Technology—where I transform code into solutions and coffee into code. Join me as I decode challenges and innovate the future of tech."</p>
                     </div>
                     <div className='social-media '>
                         <ul className='flex '>

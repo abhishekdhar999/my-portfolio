@@ -27,6 +27,7 @@ import MotionPathPlugin from 'gsap/MotionPathPlugin';
 import moreProjectImg from '../Images/check.png'
 import snail from '../Images/emojiImg.png';
 import { MdEmail } from "react-icons/md";
+import SlideShow from './SlideShow';
 // import Emoji from './Emoji';
 gsap.registerPlugin(useGSAP);
 gsap.registerPlugin(ScrollTrigger, MotionPathPlugin); 
@@ -280,7 +281,7 @@ const exploreProjects = useRef();
                 </div>
             </div>
 
-            <div className='projects '>
+            <div className='projects overflow-hidden'>
 
                 <div ref={container} className=' one flex justify-center items-center md:flex-row flex-col overflow-hidden'>
                     
@@ -448,7 +449,7 @@ const exploreProjects = useRef();
             <div className='flex justify-center items-center my-12'>
                 <button onClick={handleClick} type="button" className="text-white bg-orange-500 hover:bg-orange-400 focus:ring-4 focus:outline-none focus:ring-[#24292F]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:focus:ring-gray-500 dark:hover:bg-orange-400 me-2 mb-2">
 
-                    Explore More
+                    click here to explore more projects
                     <RiArrowDownDoubleLine />
                 </button>
             </div>
@@ -616,33 +617,37 @@ const exploreProjects = useRef();
             </div>
               )}
 
-<div  ref={container5} className=' h-44 whole sm:block hidden my-12  '>
-            <span className='flex justify-center items-center'>
-        <div className='img-1'>
+<div>
+<SlideShow></SlideShow>
+</div>
+
+{/* <div  ref={container5} className=' h-44 whole sm:block hidden my-12 overflow-hidden '>
+            <span className='flex justify-center items-center overflow-hidden'>
+        <div className='img-1 overflow-hidden'>
             <img className=' h-28 ' src={snail} alt="" />
         </div>
 
-        <div className='img-2 mx-4 bg-orange-400  rounded-full '>
+        <div className='img-2 mx-4 bg-orange-400  rounded-full overflow-hidden'>
 <h2 className='mx-4 p-0 m-0 text-amber-900 font-extrabold text-2xl my-0'> "Intrigued?   I’d love to hear from you!"      </h2>
         </div>
 
-        <span >
+        <span className=' overflow-hidden'>
         <MdEmail className='text-4xl text-orange-400'  />
         </span>
-        <span >
+        <span className=' overflow-hidden'>
         <MdEmail className='text-3xl text-orange-400'  />
         </span>
-        <span >
+        <span className=' overflow-hidden'>
         <MdEmail className='text-2xl text-orange-400'  />
         </span>
-        <span >
+        <span className=' overflow-hidden'>
         <MdEmail className='text-xl text-orange-400'  />
         </span>
-        <span >
+        <span className=' overflow-hidden'>
         <MdEmail className='  text-orange-400'  />
         </span>
         </span>
-        </div> 
+        </div>  */}
 
 
         </>

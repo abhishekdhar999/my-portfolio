@@ -28,7 +28,7 @@ toggleActions: 'play none none reverse',
   return (
     <>
 
-     <div  ref={container5} className=' h-44 whole  flex justify-end items-end'>
+     <div  ref={container5} className=' h-44 whole  flex justify-end items-end '>
         
         <div className='img-1'>
             <img className=' h-28 ' src={snail} alt="" />

@@ -7,6 +7,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: rgb(246, 241, 236);
   /* #F6F1EC */
+  /* overflow: hidden; */
 }
 
 code {

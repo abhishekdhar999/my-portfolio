@@ -36,11 +36,11 @@ export default function Home() {
 
 
 
-            <div className='flex justify-center items-center   md:flex-row flex-col h-auto mx-2 md:my-24  md:mx-12 mb-44 md:mb-0 overflow-hidden'>
+            <div className='flex justify-center items-center   md:flex-row flex-col h-auto mx-2 md:my-24 my-[-100px] md:mx-12 mb-44 md:mb-0 overflow-hidden'>
 
                 <div className='image-box lg:mx-12 mt-28 md:mt-2'>
                     <div className='image '>
-                        <img className='rounded-full w-full h-auto lg:h-[400px] max-w-96 md:my-0 my-12 ' src={one} alt="me" />
+                        <img className='rounded-full w-full h-auto lg:h-[400px] max-w-96 md:my-0 my-12 md:min-w-72' src={one} alt="me" />
                     </div>
                 </div>
 

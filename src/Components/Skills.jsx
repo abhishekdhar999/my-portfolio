@@ -33,7 +33,7 @@ export default function Skills() {
                         scrub: true,
                         toggleActions: 'play none none reverse',
 
-                        markers: true, // Use for debugging, remove or set to false in production
+                        // markers: true, // Use for debugging, remove or set to false in production
                         // onEnterBack: () => {
                         //     // Animation or action when the element re-enters from the bottom
                         //     gsap.to(box, { rotation: 0, duration: 1 });

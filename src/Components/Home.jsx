@@ -36,7 +36,7 @@ export default function Home() {
 
 
 
-            <div className='flex justify-center items-center   md:flex-row flex-col h-[100vh]   md:mt-[-50px] m-auto  mx-2 md:my-24  md:mx-12 mb-44 md:mb-0 overflow-hidden my-12'>
+            <div className='flex justify-center items-center   md:flex-row flex-col md:h-[100vh] h-[900px] mt-[-80px]  md:mt-[-50px] m-auto  mx-2 md:my-24  md:mx-12 mb-44 md:mb-0 overflow-hidden my-12'>
 
                 <div className='image-box lg:mx-12 mt-28 md:mt-2'>
                     <div className='image '>

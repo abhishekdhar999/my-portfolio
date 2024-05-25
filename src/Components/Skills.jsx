@@ -118,7 +118,7 @@ export default function Skills() {
 
     return (
         <>
-            <div>
+            <div className='mt-[-70px]'>
                 <div className='heading flex mx-10 lg:mx-36 mb-8 md:my-8 my-14'>
                     <h2 className='text-orange-500 my-3'>Tech</h2>
                     <h1 className=' text-gray-800 text-4xl ml-12'>Tools of the Trade</h1>

@@ -33,7 +33,7 @@ export default function Skills() {
                         scrub: true,
                         toggleActions: 'play none none reverse',
 
-                        // markers: true, // Use for debugging, remove or set to false in production
+                        markers: true, // Use for debugging, remove or set to false in production
                         // onEnterBack: () => {
                         //     // Animation or action when the element re-enters from the bottom
                         //     gsap.to(box, { rotation: 0, duration: 1 });
@@ -118,7 +118,7 @@ export default function Skills() {
 
     return (
         <>
-            <div className='mt-[-70px]'>
+            <div className=''>
                 <div className='heading flex mx-10 lg:mx-36 mb-8 md:my-8 my-14'>
                     <h2 className='text-orange-500 my-3'>Tech</h2>
                     <h1 className=' text-gray-800 text-4xl ml-12'>Tools of the Trade</h1>

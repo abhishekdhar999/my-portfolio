@@ -77,7 +77,7 @@ const handleInputChange = (e) => {
   {/* <!-- Section: Design Block --> */}
   <section className="mb-32">
     <div
-      className="relative h-[300px] overflow-hidden bg-cover bg-[50%] rounded-lg bg-no-repeat bg-[url('https://img.freepik.com/free-vector/yellow-color-elegant-wave-style-corporate-banner-design_1055-13670.jpg?w=2000&t=st=1713099941~exp=1713100541~hmac=c198bc96d485125644d7729faa3a24f99a55e13b73a894364e4724705ad805c7')]">
+      className="relative h-[300px] overflow-hidden bg-cover bg-[50%] rounded-lg bg-no-repeat bg-[url('https://img.freepik.com/free-photo/abstract-smooth-orange-background-layout-designstudioroom-web-template-business-report-with-smooth-c_1258-108604.jpg?w=2000&t=st=1716634292~exp=1716634892~hmac=931e8da464ef3d60713aacea91ecb29174436b07fd5898af67b609eb9bba7752')]">
     </div>
     <div className="container px-6 md:px-12">
 
